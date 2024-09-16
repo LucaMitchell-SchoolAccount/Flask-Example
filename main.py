@@ -1,6 +1,17 @@
-from flask import Flask, render_template, redirect, url_for, jsonify, request
+from flask import Flask, render_template
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "harrypotter"
 
-app.run(debug = True)
+# Routing
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+###############################
+
+app.run(debug = True, port=8000)
